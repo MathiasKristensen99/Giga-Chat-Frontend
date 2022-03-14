@@ -12,6 +12,7 @@ export class UserService {
       email: email,
       password: password,
     });
+    console.log(res.data.name);
     return res.data;
   }
 
@@ -21,7 +22,9 @@ export class UserService {
   }
 
   async searchUser(name: string): Promise<User> {
-    const res = await http.get<User>("/users/search/" + name);
+    const res = await http.post<User>("/users/search/" + name, {
+      name: name,
+    });
     return res.data;
   }
 }
