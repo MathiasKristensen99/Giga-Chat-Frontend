@@ -24,4 +24,8 @@ export class UserService {
     const res = await http.get<User>("/users/search/" + name);
     return res.data;
   }
+
+  loginUser(email: string, password: string) {
+    
+  }
 }
