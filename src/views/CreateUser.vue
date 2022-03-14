@@ -1,8 +1,8 @@
 <template>
   <h2>Let's create a user</h2>
-  <input v-model="inputName" placeholder="Enter name" /> <br>
-  <input v-model="inputEmail" placeholder="Enter Email" /> <br>
-  <input v-model="inputPassword" placeholder="Enter Password" /> <br>
+  <input v-model="inputName" placeholder="Enter name" /> <br />
+  <input v-model="inputEmail" placeholder="Enter Email" /> <br />
+  <input v-model="inputPassword" placeholder="Enter Password" /> <br />
   <button @click="handleCreateUser">Create</button>
 </template>
 
@@ -18,7 +18,6 @@ const inputPassword = ref("");
 function handleCreateUser() {
   userStore.createUser(inputName.value, inputEmail.value, inputPassword.value);
 }
-
 </script>
 
 <style scoped></style>

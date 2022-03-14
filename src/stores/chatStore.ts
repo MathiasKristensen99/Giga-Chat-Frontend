@@ -19,8 +19,7 @@ export const ChatStore = defineStore({
       this.chats.push(chat);
     },
     setRoom(room: string) {
-      if (this.room)
-        chatService.disconnectFromRoom(this.room);
+      if (this.room) chatService.disconnectFromRoom(this.room);
       this.room = room;
       chatService.listenToRoom(room, (chat) => {
         this.chats.push(chat);

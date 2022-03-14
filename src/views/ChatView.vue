@@ -4,7 +4,7 @@
   <input v-model="txtRoomInput" placeholder="Enter room" /> <br />
   <button @click="sendChat">Send</button>
   <h2>All chats:</h2>
-  <input v-model="txtRoomListener" placeholder="Enter room name"> <br />
+  <input v-model="txtRoomListener" placeholder="Enter room name" /> <br />
   <button @click="listenToRoom">Connect</button>
   <ul>
     <li v-for="(chat, index) in chatStore.chats" v-bind:key="index">
@@ -31,4 +31,6 @@ function listenToRoom() {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
