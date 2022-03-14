@@ -1,18 +1,24 @@
 import { defineStore } from "pinia";
 import type { User } from "@/models/User";
 import { UserService } from "@/services/user.service";
+import { FriendRequestService } from "@/services/friendRequest.service";
 
 const userService: UserService = new UserService();
+const friendRequestService: FriendRequestService = new FriendRequestService();
 
 export const UserStore = defineStore({
   id: "userStore",
   state: () => ({
-    loggedInUser: { name: "" } as User,
-    foundUser: { name: "" } as User,
+    loggedInUser: { name: "", uuid: "" } as User,
+    foundUser: { name: "", uuid: "" } as User,
   }),
   getters: {
     userName: (state) => {
       if (state.loggedInUser.name != undefined) return state.loggedInUser.name;
+      else return "";
+    },
+    loggedInUserId: (state) => {
+      if (state.loggedInUser.uuid != undefined) return state.loggedInUser.uuid;
       else return "";
     },
     userFound: (state) => {
