@@ -27,4 +27,9 @@ export class UserService {
     });
     return res.data;
   }
+
+  async getUserByUuid(uuid: string): Promise<User> {
+    const res = await http.get<User>("/users/" + uuid);
+    return res.data;
+  }
 }

@@ -14,4 +14,11 @@ export class FriendRequestService {
     });
     return res.data;
   }
+
+  async getFriendRequests(receivedUserUuid: string): Promise<FriendRequest[]> {
+    const res = await http.get<FriendRequest[]>(
+      "/friend-requests/" + receivedUserUuid
+    );
+    return res.data;
+  }
 }

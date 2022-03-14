@@ -1,13 +1,6 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import { UserStore } from "@/stores/userStore";
-
-const userStore = UserStore();
-</script>
-
 <template>
   <nav>
-    <RouterLink to="/">Home</RouterLink> |
+    <RouterLink to="/home">Home</RouterLink> |
     <RouterLink to="/createUser">Create User</RouterLink> |
     <RouterLink to="/chat">Join Chat</RouterLink> |
     <RouterLink to="/login">Login</RouterLink> |
@@ -20,5 +13,12 @@ const userStore = UserStore();
   <br />
   <RouterView />
 </template>
+
+<script setup lang="ts">
+import { RouterLink, RouterView } from "vue-router";
+import { UserStore } from "@/stores/userStore";
+
+const userStore = UserStore();
+</script>
 
 <style></style>
