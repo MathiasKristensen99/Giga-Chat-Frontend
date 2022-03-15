@@ -26,7 +26,8 @@ export const UserStore = defineStore({
       else return "";
     },
     friendList: (state) => {
-      if (state.loggedInUser.friends != undefined) return state.loggedInUser.friends;
+      if (state.loggedInUser.friends != undefined)
+        return state.loggedInUser.friends;
       else return "";
     },
   },

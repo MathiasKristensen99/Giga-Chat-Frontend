@@ -1,6 +1,6 @@
 import http from "./http.client";
 import type { User } from "@/models/User";
-import type {Friend} from "@/models/Friend";
+import type { Friend } from "@/models/Friend";
 
 export class UserService {
   async createUser(
@@ -28,8 +28,7 @@ export class UserService {
     });
     return res.data;
   }
-  loginUser(email: string, password: string) {
-    
+
   async getUserByUuid(uuid: string): Promise<User> {
     const res = await http.get<User>("/users/" + uuid);
     return res.data;
