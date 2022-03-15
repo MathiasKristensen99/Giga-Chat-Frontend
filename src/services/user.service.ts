@@ -27,8 +27,10 @@ export class UserService {
     });
     return res.data;
   }
-
   loginUser(email: string, password: string) {
     
+  async getUserByUuid(uuid: string): Promise<User> {
+    const res = await http.get<User>("/users/" + uuid);
+    return res.data;
   }
 }
