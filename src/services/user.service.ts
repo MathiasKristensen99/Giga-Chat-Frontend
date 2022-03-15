@@ -1,5 +1,6 @@
 import http from "./http.client";
 import type { User } from "@/models/User";
+import type {Friend} from "@/models/Friend";
 
 export class UserService {
   async createUser(

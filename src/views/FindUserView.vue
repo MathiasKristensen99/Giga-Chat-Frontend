@@ -3,7 +3,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-md-6">
         <div class="card">
-          <h2> Search for a user</h2>
+          <h2>Search for a user</h2>
           <div class="input-box">
             <input
               type="text"
@@ -22,7 +22,9 @@
                   type="button"
                   class="btn-secondary"
                   @click="sendFriendRequest"
-                >Send friend request</button>
+                >
+                  Send friend request
+                </button>
               </h3>
               <h4>{{ confirmation.valueOf() }}</h4>
             </div>
@@ -37,6 +39,7 @@
 import { ref } from "vue";
 import { UserStore } from "@/stores/userStore";
 import { FriendRequestService } from "@/services/friendRequest.service";
+import type { FriendRequest } from "@/models/FriendRequest";
 
 const friendRequestService: FriendRequestService = new FriendRequestService();
 const userStore = UserStore();
@@ -51,10 +54,12 @@ function sendFriendRequest() {
   confirmation.value = "Friend request sent!";
   friendRequestService.sendFriendRequest(
     userStore.loggedInUser.uuid,
+    userStore.userName,
     userStore.foundUser.uuid,
     false
   );
 }
+
 </script>
 
 <style scoped>
@@ -100,5 +105,4 @@ body {
 .border-bottom {
   border-bottom: 2px solid #eee;
 }
-
 </style>

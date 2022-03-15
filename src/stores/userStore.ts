@@ -9,7 +9,7 @@ const friendRequestService: FriendRequestService = new FriendRequestService();
 export const UserStore = defineStore({
   id: "userStore",
   state: () => ({
-    loggedInUser: { name: "", uuid: "" } as User,
+    loggedInUser: { name: "", uuid: "", friends: "" } as User,
     foundUser: { name: "", uuid: "" } as User,
   }),
   getters: {
@@ -23,6 +23,10 @@ export const UserStore = defineStore({
     },
     userFound: (state) => {
       if (state.foundUser.name != undefined) return state.foundUser.name;
+      else return "";
+    },
+    friendList: (state) => {
+      if (state.loggedInUser.friends != undefined) return state.loggedInUser.friends;
       else return "";
     },
   },
