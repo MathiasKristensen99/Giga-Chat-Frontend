@@ -1,19 +1,25 @@
 <template>
-  <div class="container content">
-    <div class="row">
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-        <div class="card">
-          <div class="card-header">Chat</div>
+  <h2>Send Chat</h2>
+  <input v-model="txtChatInput" placeholder="Enter chat" /> <br />
+  <input v-model="txtRoomInput" placeholder="Enter room" /> <br />
+  <button @click="sendChat">Send</button>
+  <h2>All chats:</h2>
+  <input v-model="txtRoomListener" placeholder="Enter room name"> <br />
+  <button @click="listenToRoom">Connect</button>
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6">
+        <div class="">
           <div class="card-body height3">
             <ul class="chat-list">
               <li
                 v-for="(chat, index) in chatStore.chats"
                 v-bind:key="index"
-                class="in"
+                class="out"
               >
                 <div class="chat-body">
                   <div class="chat-message">
-                    <h5>Julian Petersen</h5>
+                    <h5>{{ userStore.userName }}</h5>
                     <p>{{ chat.text }}</p>
                   </div>
                 </div>
@@ -21,7 +27,7 @@
               <li
                 v-for="(chat, index) in chatStore.chats"
                 v-bind:key="index"
-                class="out"
+                class="in"
               >
                 <div class="chat-body">
                   <div class="chat-message">
@@ -54,7 +60,9 @@
 <script setup lang="ts">
 import { ChatStore } from "@/stores/chatStore";
 import { ref } from "vue";
+import {UserStore} from "@/stores/userStore";
 
+const userStore = UserStore();
 const chatStore = ChatStore();
 const txtChatInput = ref("");
 const txtRoomInput = ref("");

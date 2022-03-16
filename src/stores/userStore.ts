@@ -50,5 +50,10 @@ export const UserStore = defineStore({
         .then((user) => (this.loggedInUser = user))
         .catch((err) => console.log(err));
     },
+    async getFriends(uuid: string) {
+      userService
+        .getUserByUuid(uuid)
+        .then((user) => (this.loggedInUser.friends = user.friends));
+    },
   },
 });

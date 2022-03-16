@@ -20,7 +20,7 @@ const userStore = UserStore();
 const inputEmail = ref("");
 const inputPassword = ref("");
 
-function login() {
+function login(this: any) {
   userStore.login(inputEmail.value, inputPassword.value);
 }
 </script>

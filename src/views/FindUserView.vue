@@ -59,7 +59,6 @@ function sendFriendRequest() {
     false
   );
 }
-
 </script>
 
 <style scoped>

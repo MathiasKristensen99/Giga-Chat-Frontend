@@ -29,7 +29,7 @@
                     friendRequestService.deleteFriendRequest(
                       friendRequest.uuid
                     ) +
-                    showConfirmation
+                    showConfirmation()
                 "
                 class="btn-secondary"
               >
