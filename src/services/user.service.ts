@@ -22,6 +22,14 @@ export class UserService {
     return res.data;
   }
 
+  async login(email: string, password: string): Promise<User> {
+    const res = await http.post<User>("/users/login", {
+      email: email,
+      password: password,
+    });
+    return res.data;
+  }
+
   async searchUser(name: string): Promise<User> {
     const res = await http.post<User>("/users/search/" + name, {
       name: name,
