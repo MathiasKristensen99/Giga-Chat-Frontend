@@ -1,5 +1,5 @@
 <template>
-  <div id="login">
+  <div class="login" id="login">
     <h1>Login</h1>
     <input type="text" name="email" v-model="inputEmail" placeholder="Email" />
     <input
@@ -8,7 +8,7 @@
       v-model="inputPassword"
       placeholder="Password"
     />
-    <button type="button" v-on:click="login()">Login</button>
+    <button class="btn btn-primary" type="button" v-on:click="login()">Login</button>
   </div>
 </template>
 
@@ -26,12 +26,19 @@ function login(this: any) {
 </script>
 
 <style scoped>
-#login {
+.login {
   width: 500px;
-  border: 1px solid #cccccc;
+  border: 2px solid #cccccc;
+  border-radius: 15px;
   background-color: #ffffff;
   margin: auto;
   margin-top: 200px;
   padding: 20px;
 }
+
+
+
+
+
+
 </style>

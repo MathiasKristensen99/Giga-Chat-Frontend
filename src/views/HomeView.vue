@@ -10,9 +10,6 @@
           </button>
           <h4 class="mb-4">Friend requests:</h4>
 
-          <button class="btn btn-primary" v-on:click="showPopUpWindow">New Chat</button>
-
-
 
           <ul v-if="friendRequests.length > 0" class="list-unstyled">
             <li
@@ -46,10 +43,6 @@
         </div>
       </div>
     </div>
-
-
-
-    <div class="newChat-PopUp" v-if="popUpOpen">Ball</div>
   </div>
 
 
@@ -70,8 +63,6 @@ const friendRequests = ref<FriendRequest[]>([]);
 const confirmation = ref("");
 
 
-//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO
-let popUpOpen = 0;
 
 function getFriendRequests() {
   friendRequestService.getFriendRequests(userStore.loggedInUserId).then((fq) =>
@@ -85,10 +76,6 @@ function showConfirmation() {
   confirmation.value = "Friend request accepted";
 }
 
-function showPopUpWindow():void{
-  popUpOpen = 1;
-  window.location.reload();
-}
 
 </script>
 
