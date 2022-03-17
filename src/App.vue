@@ -1,5 +1,5 @@
 <template >
-  <body style="background-size: 100% 100%" class="p-3 mb-2 bg-dark text-white">
+  <body class="p-3 mb-2 bg-dark text-white">
   <nav>
     <RouterLink to="/home">Home</RouterLink> |
     <RouterLink to="/createUser">Create User</RouterLink> |
@@ -13,7 +13,7 @@
   </nav>
   <br/>
 
-  <RouterView class="background" />
+  <RouterView />
   </body>
 </template>
 
@@ -26,8 +26,6 @@ const userStore = UserStore();
 </script>
 
 <style>
-.background{
-  background-size: 100% 100%;
-}
+
 
 </style>
