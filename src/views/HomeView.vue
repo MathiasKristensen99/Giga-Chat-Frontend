@@ -56,7 +56,7 @@ import { UserStore } from "@/stores/userStore";
 import { FriendRequestService } from "@/services/friendRequest.service";
 import { ref } from "vue";
 import type { FriendRequest } from "@/models/FriendRequest";
-import {UserService} from "@/services/user.service";
+import { UserService } from "@/services/user.service";
 import type { User } from "@/models/User";
 
 const userStore = UserStore();
@@ -65,7 +65,6 @@ const userService: UserService = new UserService();
 const friendRequests = ref<FriendRequest[]>([]);
 const confirmation = ref("");
 const friendList = ref(userStore.friendList);
-
 
 function getFriendRequests() {
   friendRequestService.getFriendRequests(userStore.loggedInUserId).then((fq) =>
@@ -84,7 +83,6 @@ function getFriends(newFriend: string) {
 }
 
 function showPopUpWindow(): void {
-  popUpOpen = 1;
   window.location.reload();
 }
 </script>
