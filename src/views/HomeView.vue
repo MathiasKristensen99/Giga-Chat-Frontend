@@ -4,12 +4,14 @@
       <div class="col-lg-7 mx-auto">
         <h1 class="text-center">Welcome {{ userStore.userName }}</h1>
         <div class="card-body p-5">
-          <h3 class="mb-3">Your friends: {{ userStore.friendList }}</h3>
+          <h3 class="mb-3">Your friends: {{ this.friendList.valueOf() }}</h3>
           <button class="btn btn-primary" @click="getFriendRequests">
             Get friend requests
           </button>
           <h4 class="mb-4">Friend requests:</h4>
-
+          <button class="btn btn-primary" v-on:click="showPopUpWindow">
+            New Chat
+          </button>
 
           <ul v-if="friendRequests.length > 0" class="list-unstyled">
             <li
@@ -31,7 +33,8 @@
                     friendRequestService.deleteFriendRequest(
                       friendRequest.uuid
                     ) +
-                    showConfirmation()
+                    showConfirmation() +
+                    getFriends(friendRequest.sentUserName)
                 "
                 class="btn-secondary"
               >
@@ -43,11 +46,9 @@
         </div>
       </div>
     </div>
+
+    <div class="newChat-PopUp" v-if="popUpOpen">Ball</div>
   </div>
-
-
-
-
 </template>
 
 <script setup lang="ts">
@@ -55,13 +56,15 @@ import { UserStore } from "@/stores/userStore";
 import { FriendRequestService } from "@/services/friendRequest.service";
 import { ref } from "vue";
 import type { FriendRequest } from "@/models/FriendRequest";
-
+import {UserService} from "@/services/user.service";
+import type { User } from "@/models/User";
 
 const userStore = UserStore();
 const friendRequestService: FriendRequestService = new FriendRequestService();
+const userService: UserService = new UserService();
 const friendRequests = ref<FriendRequest[]>([]);
 const confirmation = ref("");
-
+const friendList = ref(userStore.friendList);
 
 
 function getFriendRequests() {
@@ -76,7 +79,14 @@ function showConfirmation() {
   confirmation.value = "Friend request accepted";
 }
 
+function getFriends(newFriend: string) {
+  friendList.value = userStore.friendList + ", " + newFriend;
+}
 
+function showPopUpWindow(): void {
+  popUpOpen = 1;
+  window.location.reload();
+}
 </script>
 
 <style scoped>
@@ -137,12 +147,8 @@ li {
   color: #ffffff;
 }
 
-.btn-primary{
-
-
+.btn-primary {
 }
-
-
 
 .newChat-PopUp {
   flex-direction: column;

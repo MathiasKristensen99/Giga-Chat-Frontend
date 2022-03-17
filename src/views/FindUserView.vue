@@ -47,7 +47,9 @@ const inputName = ref("");
 const confirmation = ref("");
 
 function searchUser() {
-  userStore.searchUser(inputName.value);
+  userStore.searchUser(
+    inputName.value.charAt(0).toUpperCase() + inputName.value.slice(1)
+  );
 }
 
 function sendFriendRequest() {
