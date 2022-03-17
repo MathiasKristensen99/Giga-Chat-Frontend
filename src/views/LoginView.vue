@@ -1,5 +1,5 @@
 <template>
-  <div class="login" id="login">
+  <div id="login">
     <h1>Login</h1>
     <input type="text" name="email" v-model="inputEmail" placeholder="Email" />
     <input
@@ -26,7 +26,7 @@ function login(this: any) {
 </script>
 
 <style scoped>
-.login {
+#login {
   width: 500px;
   border: 2px solid #cccccc;
   border-radius: 15px;
