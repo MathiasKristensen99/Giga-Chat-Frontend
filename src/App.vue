@@ -1,4 +1,5 @@
-<template>
+<template >
+  <body style="background-size: 100% 100%" class="p-3 mb-2 bg-dark text-white">
   <nav>
     <RouterLink to="/home">Home</RouterLink> |
     <RouterLink to="/createUser">Create User</RouterLink> |
@@ -10,9 +11,12 @@
       | Logged in as: {{ userStore.userName }}</span
     >
   </nav>
-  <br />
-  <RouterView />
+  <br/>
+
+  <RouterView class="background" />
+  </body>
 </template>
+
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
@@ -21,4 +25,9 @@ import { UserStore } from "@/stores/userStore";
 const userStore = UserStore();
 </script>
 
-<style></style>
+<style>
+.background{
+  background-size: 100% 100%;
+}
+
+</style>

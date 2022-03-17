@@ -5,10 +5,15 @@
         <h1 class="text-center">Welcome {{ userStore.userName }}</h1>
         <div class="card-body p-5">
           <h3 class="mb-3">Your friends: {{ userStore.friendList }}</h3>
-          <button class="btn-primary" @click="getFriendRequests">
+          <button class="btn btn-primary" @click="getFriendRequests">
             Get friend requests
           </button>
           <h4 class="mb-4">Friend requests:</h4>
+
+          <button class="btn btn-primary" v-on:click="showPopUpWindow">New Chat</button>
+
+
+
           <ul v-if="friendRequests.length > 0" class="list-unstyled">
             <li
               v-for="(friendRequest, index) in friendRequests.values()"
@@ -41,7 +46,15 @@
         </div>
       </div>
     </div>
+
+
+
+    <div class="newChat-PopUp" v-if="popUpOpen">Ball</div>
   </div>
+
+
+
+
 </template>
 
 <script setup lang="ts">
@@ -50,10 +63,15 @@ import { FriendRequestService } from "@/services/friendRequest.service";
 import { ref } from "vue";
 import type { FriendRequest } from "@/models/FriendRequest";
 
+
 const userStore = UserStore();
 const friendRequestService: FriendRequestService = new FriendRequestService();
 const friendRequests = ref<FriendRequest[]>([]);
 const confirmation = ref("");
+
+
+//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO
+let popUpOpen = 0;
 
 function getFriendRequests() {
   friendRequestService.getFriendRequests(userStore.loggedInUserId).then((fq) =>
@@ -66,6 +84,12 @@ function getFriendRequests() {
 function showConfirmation() {
   confirmation.value = "Friend request accepted";
 }
+
+function showPopUpWindow():void{
+  popUpOpen = 1;
+  window.location.reload();
+}
+
 </script>
 
 <style scoped>
@@ -112,5 +136,36 @@ body {
 
 li {
   font-style: italic;
+}
+.New-Chat-Pop-Up {
+  width: 150px;
+  background: #33cc33;
+  border-radius: 20px;
+  align-self: center;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #ffffff;
+}
+
+.btn-primary{
+
+
+}
+
+
+
+.newChat-PopUp {
+  flex-direction: column;
+  width: 350px;
+  height: 260px;
+  background: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
 }
 </style>
