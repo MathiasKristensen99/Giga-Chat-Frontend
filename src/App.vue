@@ -1,5 +1,5 @@
 <template >
-  <body class="p-3 mb-2 bg-dark text-white">
+  <body>
   <nav>
     <RouterLink to="/home">Home</RouterLink> |
     <RouterLink to="/createUser">Create User</RouterLink> |
