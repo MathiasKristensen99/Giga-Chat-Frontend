@@ -50,10 +50,11 @@ export const UserStore = defineStore({
         .then((user) => (this.loggedInUser = user))
         .catch((err) => console.log(err));
     },
-    async getFriends(uuid: string) {
+    getUserByUuid(uuid: string) {
       userService
         .getUserByUuid(uuid)
-        .then((user) => (this.loggedInUser.friends = user.friends));
+        .then((user) => (this.loggedInUser = user))
+        .catch((err) => console.log(err));
     },
   },
 });
