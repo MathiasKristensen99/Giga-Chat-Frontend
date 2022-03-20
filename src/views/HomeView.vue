@@ -9,9 +9,6 @@
             Get friend requests
           </button>
           <h4 class="mb-4">Friend requests:</h4>
-          <button class="btn btn-primary" v-on:click="showPopUpWindow">
-            New Chat
-          </button>
 
           <ul v-if="friendRequests.length > 0" class="list-unstyled">
             <li
@@ -61,7 +58,6 @@ import type { User } from "@/models/User";
 
 const userStore = UserStore();
 const friendRequestService: FriendRequestService = new FriendRequestService();
-const userService: UserService = new UserService();
 const friendRequests = ref<FriendRequest[]>([]);
 const confirmation = ref("");
 const friendList = ref(userStore.friendList);

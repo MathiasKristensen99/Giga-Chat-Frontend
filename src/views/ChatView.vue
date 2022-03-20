@@ -31,7 +31,7 @@
               >
                 <div class="chat-body">
                   <div class="chat-message">
-                    <h5>Christian Hussmann</h5>
+                    <h5></h5>
                     <p>{{ chat.text }}</p>
                   </div>
                 </div>
@@ -161,25 +161,6 @@ body {
   right: -12px;
   border-bottom: 20px solid transparent;
   border-left: 20px solid #fc6d4c;
-}
-
-.card .card-header:first-child {
-  -webkit-border-radius: 0.3rem 0.3rem 0 0;
-  -moz-border-radius: 0.3rem 0.3rem 0 0;
-  border-radius: 0.3rem 0.3rem 0 0;
-}
-.card .card-header {
-  background: #17202b;
-  border: 0;
-  font-size: 1rem;
-  padding: 0.65rem 1rem;
-  position: relative;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.content {
-  margin-top: 40px;
 }
 
 .type_msg {

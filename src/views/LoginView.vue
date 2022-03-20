@@ -2,13 +2,17 @@
   <div id="login">
     <h1>Login</h1>
     <input type="text" name="email" v-model="inputEmail" placeholder="Email" />
+    <br />
     <input
       type="password"
       name="password"
       v-model="inputPassword"
       placeholder="Password"
     />
-    <button class="btn btn-primary" type="button" v-on:click="login()">Login</button>
+    <br>
+    <button class="btn btn-primary" type="button" v-on:click="login()">
+      Login
+    </button>
   </div>
 </template>
 
@@ -35,10 +39,4 @@ function login(this: any) {
   margin-top: 200px;
   padding: 20px;
 }
-
-
-
-
-
-
 </style>
