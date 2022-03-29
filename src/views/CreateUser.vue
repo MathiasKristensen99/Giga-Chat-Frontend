@@ -18,6 +18,15 @@
             placeholder="Enter Email"
           />
           <br />
+          <form>
+            <label> Select gender </label>
+            <select v-model="inputGender">
+              <option value="Man">Man</option>
+              <option value="Woman">Woman</option>
+              <option value="Other">Other</option>
+            </select>
+          </form>
+          <br />
           <input
             type="password"
             class="form-control"
@@ -35,9 +44,12 @@
 <script setup lang="ts">
 import { UserStore } from "@/stores/userStore";
 import { ref } from "vue";
+import { ProfileStore } from "@/stores/profileStore";
 
+const profileStore = ProfileStore();
 const userStore = UserStore();
 const inputName = ref("");
+const inputGender = ref("");
 const inputEmail = ref("");
 const inputPassword = ref("");
 
